@@ -22,7 +22,7 @@ pip install requests
 ```
 
 ## Usage
-Use the below lines to execute the app
+Use the below lines to execute the app in linux or bash terminal
 ```bashs
 python3 main.py
 ```
