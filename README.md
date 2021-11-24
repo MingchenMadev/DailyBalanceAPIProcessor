@@ -4,6 +4,8 @@ DailyBalanceAPIProcessor is a mini-app that allows connecting to a REST API from
 
 Calculates running daily balances and prints them to the console. 
 
+## Code executes on python3
+
 ## Library Used
 
 json
