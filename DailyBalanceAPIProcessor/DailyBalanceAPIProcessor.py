@@ -19,6 +19,12 @@ The read_from_url method will be O(n) time complexity and O(n) extra space where
 The display_dailybalances method will be O(n) time complexity where n is the number of dates the transaction performed range by,
 No extra space needed.
 
+Futhur thoughts:
+We could create a txn class, do a fetch from url to create many Txn Objects and process them furthur on like that,
+if we are to scale this API furthur, as some attributes from this api isn't used yet.
+Again to take things simple, and satisfy the requirement now, a simple APIProcessor is good enough to get what we need
+In a real-world, this could scale every big and have many features, it seems we only want that piece of information for now.
+
 More features like that could be enchaned/addeds easily latter on,
 example :if we want to process the same data without internet we can do that from a file.(ToBeImplemented),
 if needed to have more fault torelance, consistence or user customization.
@@ -92,7 +98,6 @@ class DailyBalanceAPIProcessor:
 
 	    Returns
 	    -------
-	    None
 	    """
 
 		for date in sorted(self.dateToBalance, reverse=True):
@@ -107,6 +112,5 @@ class DailyBalanceAPIProcessor:
 
 	    Returns
 	    -------
-	    None
 	    """
 		print(','.join(self.pagesRead))
