@@ -16,7 +16,8 @@ to save the original data to a local file txnData.txt
 
 Choose a dictionary to store data, it can easily handle millions of records.
 The read_from_url method will be O(n) time complexity and O(n) extra space where n is the number of transaction records.
-The display_dailybalances method will be O(n) time complexity where n is the number of dates the transaction performed range by,
+The display_dailybalances method will be O(nlogn) time complexity due to sorting(this could be O(n) if we dont care
+about how data is displayed) where n is the number of dates the transaction performed range by,
 No extra space needed.
 
 Futhur thoughts:
@@ -91,7 +92,7 @@ class DailyBalanceAPIProcessor:
 	def display_dailybalances(self):
 		"""
 	    Print out Daily Balances information -FORMAT: YYYY-MM-DD Balance: 0.00
-	    sorted in date descending order
+	    sorted in date ascending order
 
 	    Parameters
 	    ----------
@@ -100,7 +101,7 @@ class DailyBalanceAPIProcessor:
 	    -------
 	    """
 
-		for date in sorted(self.dateToBalance, reverse=True):
+		for date in sorted(self.dateToBalance):
 			print(date, self.dateToBalance[date])
 
 	def display_pages(self):
