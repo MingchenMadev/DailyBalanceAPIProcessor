@@ -10,12 +10,19 @@ This is a class that allows connecting to a REST API from url and fetching finan
 Calculates running daily balances and prints them to the console. 
 
 
-Notes: the DailyBalanceAPIProcessor will read from url directly and have an option
-to save the data to a local file. 
-Thus, if we want to process the same data without internet we can do that from a file.
+Notes: 
+the DailyBalanceAPIProcessor will read from url directly and have an option
+to save the original data to a local file txnData.txt
+
+Choose a dictionary to store data, it can easily handle millions of records.
+The read_from_url method will be O(n) time complexity and O(n) extra space where n is the number of transaction records.
+The display_dailybalances method will be O(n) time complexity where n is the number of dates the transaction performed range by,
+No extra space needed.
+
 More features like that could be enchaned/addeds easily latter on,
+example :if we want to process the same data without internet we can do that from a file.(ToBeImplemented),
 if needed to have more fault torelance, consistence or user customization.
-Keeping the class simply for now.
+Keeping the class simple for now.
 :)
 
 @Arthur: Mingchen Ma
@@ -43,7 +50,8 @@ class DailyBalanceAPIProcessor:
 
 	def read_from_url(self, url, writeToFile=False):
 	    """
-	    Receive the content of url, process and store the transaction information Date to Balance
+	    Receive the content of url, process and store the transaction information Date to Balance.
+	    Return True if we successfully process the data from the url that has status_code of 200, False otherwise.
 
 	    Parameters
 	    ----------
@@ -52,7 +60,7 @@ class DailyBalanceAPIProcessor:
 
 	    Returns
 	    -------
-	    Boolean (True if we successfully process the data from the url, False otherwise)
+	    Boolean 
 	    """
 	    r = requests.get(url)
 	    if r.status_code != 200:

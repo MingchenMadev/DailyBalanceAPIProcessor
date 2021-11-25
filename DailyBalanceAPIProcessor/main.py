@@ -20,7 +20,7 @@ def main():
 	#it will save the json content to a file, file already included in the link for now, so free feel to
 	#turn it off
 
-	for i in range(10):
+	for i in range(1, 4):
 		dBalanceProcessor.read_from_url('https://resttest.bench.co/transactions/' + str(i) + '.json')
 
 	dBalanceProcessor.display_dailybalances()
