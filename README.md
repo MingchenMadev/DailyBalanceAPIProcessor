@@ -8,17 +8,13 @@ Calculates running daily balances and prints them to the console.
 
 ## Library Used
 
-json
+#### json
+#### requests
+#### decimal
+#### collections
+#### unittest
 
-requests
-
-decimal
-
-collections
-
-unittest
-
-You can use pip install to install libraries
+You can use pip install to install libraries in linux or bash termial
 
 Example:
 ```bash
